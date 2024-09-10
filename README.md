@@ -22,7 +22,7 @@ Kelas   : PBP - D
     Untuk me-deploy ke Adaptable, saya memilih repositori proyek warunk_chill sebagai basis aplikasi yang akan di-deploy dan branch 'main' sebagai deployment branch. Karena dalam membuat proyeknya sebagian besar menggunakan bahasa Python, maka saya memilih Python App Template sebagai template deployment. yang terakhir sebelum melakukan deployment, saya memasukkan nama aplikasi saya 'warunk_chill' agar dapat digunakan juga sebagai nama domain situs web aplikasi saya.
 
 2. Alur sebuah request client ke web aplikasi berbasis Django beserta responnya menurut bagan tersebut adalah sebagai berikut:
-
+![django concept](https://github.com/user-attachments/assets/aa57dc9a-f895-4e94-abcf-d18b40a71a9f)
     
     Pertama, request yang masuk ke dalam server Django akan diproses melalui urls.py untuk diteruskan ke views.py yang kita definisikan untuk memproses permintaan tersebut.
     Apabila terdapat proses yang membutuhkan keterlibatan database, maka nantinya views.py akan memanggil query ke models.py dan database akan mengembalikan hasil dari query tersebut ke views.py.
