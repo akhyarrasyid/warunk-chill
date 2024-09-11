@@ -2,7 +2,7 @@ Nama    : Akhyar Rasyid Asy syifa
 NPM     : 2306241682
 Kelas   : PBP - D
 
-[ Link web: https://pbp.cs.ui.ac.id/akhyar.rasyid/warunkchill ]
+[ Link web: http://akhyar-rasyid-warunkchill.pbp.cs.ui.ac.id/ ]
 
 1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
     Jawab : 
