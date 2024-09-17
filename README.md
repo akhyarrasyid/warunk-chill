@@ -262,13 +262,13 @@ kemudian membuka `http://localhost:8000/` di browser pilihan.
 
 ## Screenshot hasil akses URL pada postman
 ### - XML
-
+<img width="1280" alt="bahan readme pbp 1" src="https://github.com/user-attachments/assets/acb7bd6f-3073-42af-9041-dc9a7c7dea4e">
 
 ### - JSON
-
+<img width="1280" alt="bahan readme json" src="https://github.com/user-attachments/assets/4a4a74d4-a4a1-4a0b-a031-18d9d3aefac0">
 
 ### - XML by ID
-
+<img width="1280" alt="bahan readme xml by id" src="https://github.com/user-attachments/assets/c94d0901-8ffc-4791-9588-d33abea9ddd0">
 
 ### - JSON by ID
-
+<img width="1280" alt="bahan readme json by id" src="https://github.com/user-attachments/assets/229a2976-5587-484c-9e4e-da5f2d056d1e">
