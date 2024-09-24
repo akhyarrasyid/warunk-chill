@@ -281,8 +281,6 @@ kemudian membuka `http://localhost:8000/` di browser pilihan.
 <img width="1280" alt="bahan readme json by id" src="https://github.com/user-attachments/assets/229a2976-5587-484c-9e4e-da5f2d056d1e">
 </details>
 
-<details>
-<summary>📒 Tugas 3</summary>
 ## Tugas 
 ## 1. Apa perbedaan antara HttpResponseRedirect() dan redirect()?
 -**`HttpResponseRedirect()`**:
