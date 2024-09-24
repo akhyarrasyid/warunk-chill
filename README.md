@@ -349,7 +349,7 @@ Cookies memiliki berbagai kegunaan lain, antara lain:
 Tidak semua cookies aman digunakan. Ada beberapa risiko keamanan yang terkait dengan cookies, seperti _Hijacking_ , Serangan Cross-Site Scripting (XSS), dll. Hal ini karena cookies dapat disalahgunakan untuk menyimpan informasi sensitif seperti password atau data pribadi yang berisiko tinggi diambil oleh pihak yang tidak berwenang, misalnya hacker. Namun, django menyediakan beberapa flag bawaan yang dapat meminimalisir kemungkinan tersebut seperti Secure, HttpOnly, dan SameSite. Selain itu, cookies untuk sesi login perlu diatur masa berlakunya (_expiry_) untuk menghindari penyimpanan data yang tidak diperlukan terlalu lama.
 
 ## 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
-### 1. Check : 1
+### 1. Check 1 : Mengimplementasikan fungsi registrasi, login, dan logout untuk memungkinkan pengguna untuk mengakses aplikasi sebelumnya dengan lancar.
 
 #### pengimplementasian ini diawali dengan menambahkan import dari django.contrib.auth.forms, django.contrib, dan django.contrib.auth pada `views.py` untuk kepentingan pembuatan form dan fungsi login dan logout yang akan saya buat.
 ```
@@ -503,22 +503,26 @@ def show_main(request):
 ...
 ```
 
-### check 2 :
+### check 2 : Membuat dua akun pengguna dengan masing-masing tiga dummy data menggunakan model yang telah dibuat pada aplikasi sebelumnya untuk setiap akun di lokal.
 Untuk membuat dua akun, kita bisa melakukan registrasi sebanyak dua kali dengan informasi yang berbeda untuk setiap akun. Langkah ini dapat dilakukan melalui form registrasi yang ada di aplikasi, di mana pengguna mengisi data yang diperlukan untuk membuat akun baru.
 
 Selanjutnya, untuk membuat data dummy, kita perlu terlebih dahulu masuk (login) sebagai pengguna yang akan kita gunakan untuk menambahkan data dummy tersebut. Setelah berhasil login, kita dapat membuat beberapa data dummy baru dengan menggunakan form input yang sudah tersedia, misalnya melalui form POST yang telah kita buat sebelumnya pada Tugas 3. Data dummy ini dapat ditambahkan melalui tampilan aplikasi, di mana pengguna dapat mengisi informasi yang diinginkan dan mengirimkan data tersebut untuk disimpan dalam sistem.
 
 Akun 1 dengan username user.akhyar
-
-
-
-
+<img width="1280" alt="user 1" src="https://github.com/user-attachments/assets/3492a296-451a-46ae-ad16-ece90201e8f2">
+<img width="226" alt="login user 1" src="https://github.com/user-attachments/assets/187b9338-fc5f-4d6e-9609-5bae4f106398">
+<img width="323" alt="product 1 user 1" src="https://github.com/user-attachments/assets/ff7d075a-b01e-47a3-804e-8c81f4f4efa9">
+<img width="314" alt="product 2 user 1" src="https://github.com/user-attachments/assets/399ec055-fe4c-4e8a-b20b-a4d42875bb38">
+<img width="323" alt="product 3 user 1" src="https://github.com/user-attachments/assets/576acca5-68dc-4827-a3f4-6470c7cc682a">
+<img width="1280" alt="hasil akhir user 1" src="https://github.com/user-attachments/assets/bea431f7-4d18-4c51-8272-68f738fc2691">
 
 Akun 2 dengan username user.rasyid
-
-
-
-
+<img width="1280" alt="user 2" src="https://github.com/user-attachments/assets/e0102cf9-6885-47f5-9b47-70e7e43efe84">
+<img width="223" alt="login user 2" src="https://github.com/user-attachments/assets/d550feff-c988-4aff-beab-d4168dd99fca">
+<img width="328" alt="product 1 user 2" src="https://github.com/user-attachments/assets/ff90bac5-fdf2-4a31-9ef4-0dd6037033a5">
+<img width="324" alt="product 2 user 2" src="https://github.com/user-attachments/assets/fd8a4dd3-a967-4f36-be51-bc382457bfa4">
+<img width="326" alt="product 3 user 2" src="https://github.com/user-attachments/assets/d91d7e91-49ba-4939-8c5c-06533f8e1031">
+<img width="1280" alt="hasil akhir user 2" src="https://github.com/user-attachments/assets/96354286-8cf2-48aa-a0dd-daf427237fe9">
 
 
 ### check 3 : Menghubungkan model `product` dan `user`
