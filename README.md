@@ -628,6 +628,8 @@ Dengan desain yang responsif, pengalaman pengguna menjadi lebih baik karena mere
 - contoh aplikasi yang belum menerapkan responsive design: SiakNG
 
 ## 3. Jelaskan perbedaan antara margin, border, dan padding, serta cara untuk mengimplementasikan ketiga hal tersebut!
+
+
 - 1. Padding : ruang di dalam elemen, antara konten dan batas (border) elemen tersebut. Padding meningkatkan jarak antara konten elemen dengan batas tepi elemen.
 - 2. Border : garis yang mengelilingi elemen. Border berada di antara padding dan margin dan memberikan tampilan batas atau tepi pada elemen.
 - 3. Margin : ruang di luar elemen yang mengatur jarak antara elemen tersebut dengan elemen lainnya. Margin mendorong elemen-elemen lain untuk menjauh.
@@ -645,7 +647,6 @@ Dengan desain yang responsif, pengalaman pengguna menjadi lebih baik karena mere
 Flexbox dan Grid Layout adalah dua fitur CSS yang sangat powerful untuk mengatur tata letak elemen-elemen dalam sebuah halaman web.
 #### Flexbox
 **Konsep Dasar**: Flexbox dirancang untuk mengatur tata letak elemen dalam satu dimensi, baik secara horizontal maupun vertikal. Bayangkan seperti sebuah kotak fleksibel yang berisi beberapa item. Kita dapat mengatur bagaimana item-item tersebut diatur di dalam kotak tersebut.
-
 **Kegunaan**:
 - Responsivitas: Sangat baik untuk membuat layout yang responsif, menyesuaikan diri dengan berbagai ukuran layar.
 - Pengaturan Spasi: Dengan mudah mengatur jarak antara item, margin, padding, dan alignment.
@@ -655,8 +656,7 @@ Flexbox dan Grid Layout adalah dua fitur CSS yang sangat powerful untuk mengatur
 
 #### Grid Layout
 **Konsep Dasar**: Grid Layout memberikan cara yang lebih kuat untuk mengatur tata letak elemen dalam dua dimensi, seperti baris dan kolom. Bayangkan seperti sebuah tabel, tetapi dengan fleksibilitas yang jauh lebih tinggi.
-
-**Kegunaan**:
+Kegunaan:
 - Layout Kompleks: Sangat cocok untuk membuat layout yang kompleks dengan banyak baris dan kolom.
 Responsivitas: Mirip dengan Flexbox, Grid Layout juga sangat baik untuk membuat layout yang responsif.
 - Template Grid: Mendefinisikan struktur grid yang kustom dengan baris dan kolom yang dapat disesuaikan.
@@ -706,36 +706,38 @@ urlpatterns = [
 ### checklist 2 : Kustomisasi desain pada template HTML yang telah dibuat pada tugas-tugas sebelumnya menggunakan CSS atau CSS framework (seperti Bootstrap, Tailwind, Bulma) dengan ketentuan sebagai berikut:
 #### Kustomisasi halaman login, register, dan tambah product semenarik mungkin.
 sebelum melangkah lebih jauh, saya menambahkan fitur CDN Styling supaya tidak perlu repot dalam mengkonfigurasi tailwind pada project
-``` 
-    <script src="https://cdn.tailwindcss.com">
+``` <script src="https://cdn.tailwindcss.com">
     </script> 
 ```
 letakkan di `base.html` di bawah `{% endblock meta %}`
 
-##### lanjutkan kustomisasi `login.html`
+###### lanjutkan kustomisasi `login.html`
 - [Login Page](https://github.com/akhyarrasyid/warunk-chill/blob/master/main/templates/login.html)
 
 
-##### lanjutkan kustomisasi `register.html`
+###### lanjutkan kustomisasi `register.html`
 - [Register Page](https://github.com/akhyarrasyid/warunk-chill/blob/master/main/templates/register.html)
 
 
-##### lanjutkan kustomisasi `create_product_entry.html`
+###### lanjutkan kustomisasi `create_product_entry.html`
 - [Create Product](https://github.com/akhyarrasyid/warunk-chill/blob/master/main/templates/create_product_entry.html)
 
 
-##### lanjutkan kustomisasi `edit_product.html`
+###### lanjutkan kustomisasi `edit_product.html`
 - [Edit Product](https://github.com/akhyarrasyid/warunk-chill/blob/master/main/templates/edit_product.html)
 
 
-##### lanjutkan kustomisasi `main.html`
+###### lanjutkan kustomisasi `main.html`
 - [Daftar Product](https://github.com/akhyarrasyid/warunk-chill/blob/master/main/templates/main.html)
 
 
-##### lanjutkan kustomisasi `product_card.html`
+###### lanjutkan kustomisasi `product_card.html`
 - [Card Product](https://github.com/akhyarrasyid/warunk-chill/blob/master/main/templates/product_card.html)
 
 
-##### lanjutkan kustomisasi `navbar.html`
+###### lanjutkan kustomisasi `navbar.html`
 - [Navigation Bar](https://github.com/akhyarrasyid/warunk-chill/blob/master/templates/navbar.html)
+
+
+
 
