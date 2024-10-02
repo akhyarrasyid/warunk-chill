@@ -8,6 +8,7 @@ class Product(models.Model):
     name = models.CharField(max_length=255)  # Nama produk
     price = models.DecimalField(max_digits=10, decimal_places=2)  # Harga produk
     description = models.TextField()  # Deskripsi produk
+    quantity = models.IntegerField(default=0)
 
     def __str__(self):
         return self.name
