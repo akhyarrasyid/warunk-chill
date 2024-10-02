@@ -282,6 +282,9 @@ kemudian membuka `http://localhost:8000/` di browser pilihan.
 <img width="1280" alt="bahan readme json by id" src="https://github.com/user-attachments/assets/229a2976-5587-484c-9e4e-da5f2d056d1e">
 </details>
 
+<details>
+<summary>📒 Tugas 4</summary>
+
 ## Tugas 4
 ## 1. Apa perbedaan antara HttpResponseRedirect() dan redirect()?
 -**`HttpResponseRedirect()`**:
@@ -604,3 +607,137 @@ saya perlu mempersiapkan aplikasi ini untuk environment production. Untuk itu, s
 PRODUCTION = os.getenv("PRODUCTION", False)
 DEBUG = not PRODUCTION
 ```
+</details>
+
+## Tugas 5
+## 1.  Jika terdapat beberapa CSS selector untuk suatu elemen HTML, jelaskan urutan prioritas pengambilan CSS selector tersebut!
+Jika terdapat beberapa CSS selector untuk suatu elemen HTML, berikut adalah urutan prioritasnya dari yang tertinggi hingga terendah:
+  1. **inline styles** : Gaya yang ditulis langsung pada elemen HTML menggunakan atribut style memiliki prioritas tertinggi. contoh :
+  ```<div style="color: red;">Hello</div>```
+  2. **ID Selectors**: Selector yang menggunakan ID (diawali dengan `#`). Misalnya:
+  ```#header { color: blue; }```
+  3. **Class, Attribute, dan Pseudo-class Selectors**: Selector yang menggunakan class (.class), atribut ([attribute="value"]), dan pseudo-class (`:hover`, `:first-child`, dll). Contoh:
+  ```.menu { color: green; }```
+  4. **Element dan Pseudo-element Selectors**: Selector yang hanya menggunakan elemen (tag) HTML (div, p, span, dll) dan pseudo-element (`::before`, `::after`, dll). Misalnya:
+  ```p { color: black; }```
+  note : Important Rule (!important) dapat mengesampingkan semua urutan di atas dan memberikan prioritas tertinggi untuk suatu property.
+
+## 2. Mengapa responsive design menjadi konsep yang penting dalam pengembangan aplikasi web? Berikan contoh aplikasi yang sudah dan belum menerapkan responsive design!
+Dengan desain yang responsif, pengalaman pengguna menjadi lebih baik karena mereka dapat mengakses konten dengan nyaman tanpa perlu melakukan zoom atau scroll berlebihan, sehingga meningkatkan kepuasan saat menggunakan aplikasi. Selain itu, responsive design memungkinkan aplikasi web menyesuaikan tampilannya untuk berbagai perangkat, seperti ponsel dan tablet, yang jumlah penggunanya terus meningkat. Hal ini memastikan aplikasi tetap terlihat baik dan mudah digunakan di berbagai ukuran layar, baik pada perangkat dengan layar kecil maupun besar.
+- contoh aplikasi yang sudah menerapkan responsive design: amazon, adidas, youtube, tiktok, BBC News 
+- contoh aplikasi yang belum menerapkan responsive design: SiakNG
+
+## 3. Jelaskan perbedaan antara margin, border, dan padding, serta cara untuk mengimplementasikan ketiga hal tersebut!
+
+
+- 1. Padding : ruang di dalam elemen, antara konten dan batas (border) elemen tersebut. Padding meningkatkan jarak antara konten elemen dengan batas tepi elemen.
+- 2. Border : garis yang mengelilingi elemen. Border berada di antara padding dan margin dan memberikan tampilan batas atau tepi pada elemen.
+- 3. Margin : ruang di luar elemen yang mengatur jarak antara elemen tersebut dengan elemen lainnya. Margin mendorong elemen-elemen lain untuk menjauh.
+
+##### contoh penerapan ketiganya : 
+```
+.box {
+  padding: 15px;           /* Ruang di dalam elemen */
+  border: 3px solid green;  /* Garis batas elemen */
+  margin: 20px;            /* Ruang di luar elemen */
+}
+```
+
+## 4. Jelaskan konsep flex box dan grid layout beserta kegunaannya!
+Flexbox dan Grid Layout adalah dua fitur CSS yang sangat powerful untuk mengatur tata letak elemen-elemen dalam sebuah halaman web.
+#### Flexbox
+**Konsep Dasar**: Flexbox dirancang untuk mengatur tata letak elemen dalam satu dimensi, baik secara horizontal maupun vertikal. Bayangkan seperti sebuah kotak fleksibel yang berisi beberapa item. Kita dapat mengatur bagaimana item-item tersebut diatur di dalam kotak tersebut.
+**Kegunaan**:
+- Responsivitas: Sangat baik untuk membuat layout yang responsif, menyesuaikan diri dengan berbagai ukuran layar.
+- Pengaturan Spasi: Dengan mudah mengatur jarak antara item, margin, padding, dan alignment.
+- Distribusi Ruang: Memungkinkan kita untuk mendistribusikan ruang secara merata atau tidak merata di antara item-item.
+- Order: Mengatur urutan tampilan item tanpa mengubah HTML.
+- Basis untuk Layout Lebih Kompleks: Meskipun dirancang untuk satu dimensi, Flexbox sering digunakan sebagai dasar untuk membangun layout yang lebih kompleks.
+
+#### Grid Layout
+**Konsep Dasar**: Grid Layout memberikan cara yang lebih kuat untuk mengatur tata letak elemen dalam dua dimensi, seperti baris dan kolom. Bayangkan seperti sebuah tabel, tetapi dengan fleksibilitas yang jauh lebih tinggi.
+Kegunaan:
+- Layout Kompleks: Sangat cocok untuk membuat layout yang kompleks dengan banyak baris dan kolom.
+Responsivitas: Mirip dengan Flexbox, Grid Layout juga sangat baik untuk membuat layout yang responsif.
+- Template Grid: Mendefinisikan struktur grid yang kustom dengan baris dan kolom yang dapat disesuaikan.
+- Area: Membagi grid menjadi area-area yang dapat diberi nama dan kemudian ditempatkan item ke dalamnya.
+- Gaps: Menambahkan jarak antara baris dan kolom dengan mudah.
+
+## 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
+### 1. checklist 1 :  Implementasikan fungsi untuk menghapus dan mengedit product.
+##### Buat view untuk Edit dan Delete:
+Untuk menambahkan fitur edit dan hapus produk dalam aplikasi, pertama-tama saya membuka file `views.py` dan membuat dua fungsi edit dan delete seperti berikut:
+```
+@login_required(login_url='/login')
+def edit_product(request, id):
+    # Get product entry berdasarkan id
+    product = Product.objects.get(pk = id)
+
+    # Set product entry sebagai instance dari form
+    form = ProductForm(request.POST or None, instance=product)
+
+    if form.is_valid() and request.method == "POST":
+        # Simpan form dan kembali ke halaman awal
+        form.save()
+        return HttpResponseRedirect(reverse('main:show_main'))
+
+    context = {'form': form}
+    return render(request, "edit_product.html", context)
+
+@login_required(login_url='/login')
+def delete_product(request, id):
+    # Get product berdasarkan id
+    product = Product.objects.get(pk = id)
+    # Hapus product
+    product.delete()
+    # Kembali ke halaman awal
+    return HttpResponseRedirect(reverse('main:show_main'))
+```
+
+##### lalu saya membuat routing path di `urls.py` untuk edit dan delete
+```
+urlpatterns = [
+    ...
+    path('edit-product/<uuid:id>', edit_product, name='edit_product'),
+    path('delete/<str:id>', delete_product, name='delete_product'),
+]
+```
+
+### checklist 2 : Kustomisasi desain pada template HTML yang telah dibuat pada tugas-tugas sebelumnya menggunakan CSS atau CSS framework (seperti Bootstrap, Tailwind, Bulma) dengan ketentuan sebagai berikut:
+#### Kustomisasi halaman login, register, dan tambah product semenarik mungkin.
+sebelum melangkah lebih jauh, saya menambahkan fitur CDN Styling supaya tidak perlu repot dalam mengkonfigurasi tailwind pada project
+``` <script src="https://cdn.tailwindcss.com">
+    </script> 
+```
+letakkan di `base.html` di bawah `{% endblock meta %}`
+
+###### lanjutkan kustomisasi `login.html`
+- [Login Page](https://github.com/akhyarrasyid/warunk-chill/blob/master/main/templates/login.html)
+
+
+###### lanjutkan kustomisasi `register.html`
+- [Register Page](https://github.com/akhyarrasyid/warunk-chill/blob/master/main/templates/register.html)
+
+
+###### lanjutkan kustomisasi `create_product_entry.html`
+- [Create Product](https://github.com/akhyarrasyid/warunk-chill/blob/master/main/templates/create_product_entry.html)
+
+
+###### lanjutkan kustomisasi `edit_product.html`
+- [Edit Product](https://github.com/akhyarrasyid/warunk-chill/blob/master/main/templates/edit_product.html)
+
+
+###### lanjutkan kustomisasi `main.html`
+- [Daftar Product](https://github.com/akhyarrasyid/warunk-chill/blob/master/main/templates/main.html)
+
+
+###### lanjutkan kustomisasi `product_card.html`
+- [Card Product](https://github.com/akhyarrasyid/warunk-chill/blob/master/main/templates/product_card.html)
+
+
+###### lanjutkan kustomisasi `navbar.html`
+- [Navigation Bar](https://github.com/akhyarrasyid/warunk-chill/blob/master/templates/navbar.html)
+
+
+
+

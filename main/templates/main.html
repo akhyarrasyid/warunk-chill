@@ -1,44 +1,40 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
-<h1>warunk chill</h1>
+  <div class="bg-gradient-to-b from-black via-[#121212] to-[#001F3F] min-h-screen font-sans text-gray-200">
 
-<h5>Nama Aplikasi: </h5>
-<p>{{ app_name }}<p>
-<h5>Nama: </h5>
-<p>{{ name }}<p>
-<h5>Kelas : </h5>
-<p>{{ class_name }}<p>
+    <!-- Navbar -->
+    <div class="p-6">
+      {% include 'navbar.html' %}
+    </div>
 
-{% if not product_entries %}
-<p>Belum ada data product pada Warunk Chill.</p>
-{% else %}
-<table>
-  <tr>
-    <th>Product Name</th>
-    <th>Price</th>
-    <th>Description</th>
-  </tr>
+    <!-- Header -->
+    <div class="py-8">
+      <h1 class="text-4xl font-extrabold text-center font-mono text-white tracking-wide">Warunk Chill</h1>
+      <h2 class="text-2xl font-semibold text-center font-mono text-white mt-2">{{ tagline }}</h2>
+    </div>
 
-  {% comment %} Berikut cara memperlihatkan data product di bawah baris ini 
-  {% endcomment %} 
-  {% for product_entry in product_entries %}
-  <tr>
-    <td>{{product_entry.name}}</td>
-    <td>{{product_entry.price}}</td>
-    <td>{{product_entry.description}}</td>
-  </tr>
-  {% endfor %}
-</table>
-{% endif %}
-
-<br />
-
-<a href="{% url 'main:create_product_entry' %}">
-  <button>Add New Product Entry</button>
-<a href="{% url 'main:logout' %}">
-  <button>Logout</button>
-
-<h5>Sesi terakhir login: {{ last_login }}</h5>
-
-</a> 
+    <!-- Add New Product Button -->
+    <div class="flex justify-end px-6 mt-8">
+      <a href="{% url 'main:create_product_entry' %}" style="outline: none !important; text-decoration: none;">
+        <button class="bg-indigo-600 hover:bg-indigo-500 text-white p-3 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 ease-in-out">
+          Add New Product Entry
+        </button>
+      </a>
+    </div>
+ 
+    <!-- Product Entries or Empty State -->
+    {% if not product_entries %}
+    <div class="flex flex-col items-center justify-center min-h-[24rem] p-6">
+      <img src="{% static 'image/sedih-banget.gif' %}" alt="Sad face" class="w-72 h-72 mb-4"/>
+      <p class="text-xl text-gray-400">Belum ada data produk pada Warunk Chill.</p>
+    </div>
+    {% else %}
+    <div class="flex flex-wrap mt-8 justify-center px-6">
+      {% for product_entry in product_entries %}
+        {% include 'product_card.html' %}
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
 {% endblock content %}

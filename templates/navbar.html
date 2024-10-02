@@ -1,0 +1,80 @@
+<nav class="">
+    <div class="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16 items-center">
+        <!-- Welcome text on the left -->
+        <div class="flex items-center">
+          {% if user.is_authenticated %}
+            <div class="flex flex-col">
+                <span class="text-gray-300 text-2xl font-mono">Welcome, {{ user.username }}</span>
+                <span class="text-gray-300 text-sm font-mono">Sesi terakhir login: {{ last_login }}</span>
+            </div>
+          {% endif %}
+        </div>
+        
+        <!-- Login/Logout buttons on the right -->
+        <div class="hidden md:flex items-center group">
+            <a href="/" class="text-center font-sans bg-violet-700 hover:bg-violet-800 text-white font-bold py-2 
+              px-9 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 ease-in-out mr-4">
+              Home
+            </a>
+          {% if user.is_authenticated %}
+            <a href="{% url 'main:logout' %}" class="text-center font-sans bg-red-500 hover:bg-red-600 text-white font-bold py-2 
+            px-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 ease-in-out">
+              Sign Out
+            </a>
+          {% else %}
+            <a href="{% url 'main:login' %}" class="text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300 mr-2">
+              Login
+            </a>
+            <a href="{% url 'main:register' %}" class="text-center bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded transition duration-300">
+              Register
+            </a>
+          {% endif %}
+          
+        </div>
+  
+        <!-- Mobile menu button on the right -->
+        <div class="md:hidden flex items-center">
+          <button class="mobile-menu-button">
+            <svg class="w-6 h-6 text-white" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+              <path d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Mobile menu -->
+    <div class="mobile-menu hidden md:hidden px-4 w-full md:max-w-full">
+      <div class="flex flex-col pt-2 pb-3 space-y-1 mx-auto">
+        <div class="text-center font-sans bg-violet-700 hover:via-violet-800 text-white font-bold py-2 px-6
+           rounded shadow-lg transform hover:scale-105 transition duration-300 ease-in-out">
+            <a href="/" class="text-center text-white font-bold py-2 px-6 rounded-lg font-sans">
+              Home
+            </a>
+          </div>
+        {% if user.is_authenticated %}
+          <a href="{% url 'main:logout' %}" class="text-center font-sans bg-red-500 hover:bg-red-600 text-white font-bold py-2 
+          px-6 rounded shadow-lg transform hover:scale-105 transition duration-300 ease-in-out">
+            Sign Out
+          </a>
+        {% else %}
+          <a href="{% url 'main:login' %}" class="block text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300 mb-2">
+            Login
+          </a>
+          <a href="{% url 'main:register' %}" class="block text-center bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded transition duration-300">
+            Register
+          </a>
+        {% endif %}
+      </div>
+    </div>
+    
+    <script>
+      const btn = document.querySelector("button.mobile-menu-button");
+      const menu = document.querySelector(".mobile-menu");
+  
+      btn.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+      });
+    </script>
+</nav>
