@@ -708,7 +708,8 @@ urlpatterns = [
 ### checklist 2 : Kustomisasi desain pada template HTML yang telah dibuat pada tugas-tugas sebelumnya menggunakan CSS atau CSS framework (seperti Bootstrap, Tailwind, Bulma) dengan ketentuan sebagai berikut:
 #### Kustomisasi halaman login, register, dan tambah product semenarik mungkin.
 sebelum melangkah lebih jauh, saya menambahkan fitur CDN Styling supaya tidak perlu repot dalam mengkonfigurasi tailwind pada project
-``` <script src="https://cdn.tailwindcss.com">
+```
+    <script src="https://cdn.tailwindcss.com">
     </script> 
 ```
 letakkan di `base.html` di bawah `{% endblock meta %}`
