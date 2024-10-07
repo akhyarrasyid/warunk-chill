@@ -609,7 +609,9 @@ DEBUG = not PRODUCTION
 ```
 </details>
 
-## Tugas 5
+<details>
+<summary>📒 Tugas 5</summary>
+
 ## 1.  Jika terdapat beberapa CSS selector untuk suatu elemen HTML, jelaskan urutan prioritas pengambilan CSS selector tersebut!
 Jika terdapat beberapa CSS selector untuk suatu elemen HTML, berikut adalah urutan prioritasnya dari yang tertinggi hingga terendah:
   1. **inline styles** : Gaya yang ditulis langsung pada elemen HTML menggunakan atribut style memiliki prioritas tertinggi. contoh :
@@ -738,6 +740,29 @@ letakkan di `base.html` di bawah `{% endblock meta %}`
 ###### lanjutkan kustomisasi `navbar.html`
 - [Navigation Bar](https://github.com/akhyarrasyid/warunk-chill/blob/master/templates/navbar.html)
 
+</details>
 
+## Tugas 6
+## 1. Jelaskan manfaat dari penggunaan JavaScript dalam pengembangan aplikasi web!
+JavaScript memiliki banyak manfaat dalam pengembangan aplikasi web, salah satunya adalah memungkinkan kita untuk membuat halaman web yang lebih interaktif. Dengan JavaScript, kita dapat menambahkan fitur-fitur seperti animasi, validasi form, dan efek visual tanpa perlu melakukan refresh halaman. Hal ini tentu saja memberikan pengalaman yang lebih baik bagi pengguna.
 
+Selain itu, JavaScript memungkinkan pengembangan aplikasi web yang lebih dinamis dan responsif, terutama melalui penggunaan teknologi seperti AJAX yang memungkinkan pengambilan data dari server tanpa perlu memuat ulang halaman. JavaScript juga mempermudah pengelolaan elemen-elemen pada halaman web secara langsung, sehingga kita bisa mengubah konten atau gaya tampilan secara real-time. JavaScript juga mendukung integrasi API, yang memudahkan kita dalam mengambil data dari sumber eksternal.
 
+kalau membahas lebih jauh, framework dan library modern seperti React dan Vue.js dibangun di atas JavaScript, yang sangat membantu dalam membangun aplikasi web yang besar dan terstruktur. Selain itu, JavaScript tidak hanya terbatas pada browser, tetapi juga dapat digunakan di server dengan Node.js, sehingga memungkinkan pengembangan full-stack dengan satu bahasa pemrograman.
+
+## 2. Jelaskan fungsi dari penggunaan await ketika kita menggunakan fetch()! Apa yang akan terjadi jika kita tidak menggunakan await?
+await berfungsi untuk menunggu penyelesaian suatu proses asinkron, seperti fetch(), sebelum melanjutkan ke baris kode berikutnya. Dalam konteks fetch(), yang secara default mengembalikan Promise, penggunaan await memastikan bahwa kita menunggu hingga data dari server benar-benar diterima sebelum melanjutkan operasi lain, seperti pengolahan data.
+
+Jika kita tidak menggunakan await, program akan langsung melanjutkan ke baris kode berikutnya tanpa menunggu hasil dari server, sehingga dapat menyebabkan kesalahan karena data mungkin belum tersedia saat kode mencoba mengaksesnya. Dengan menggunakan await, kita memastikan bahwa aplikasi berjalan sesuai urutan yang diharapkan, khususnya saat mengolah data dari server.
+
+## 3. Mengapa kita perlu menggunakan decorator csrf_exempt pada view yang akan digunakan untuk AJAX POST?
+Django menerapkan perlindungan terhadap serangan Cross-Site Request Forgery (CSRF) untuk memastikan bahwa setiap permintaan POST yang dikirimkan ke server berasal dari sumber yang tepercaya. Django biasanya memeriksa token CSRF yang disertakan dalam setiap permintaan POST untuk mencegah serangan tersebut.
+
+Namun, ketika kita menggunakan AJAX POST, mungkin token CSRF tidak disertakan dengan benar, yang menyebabkan permintaan POST ditolak oleh Django. Dalam kasus ini, kita dapat menggunakan decorator csrf_exempt pada view yang menangani AJAX POST untuk menonaktifkan pemeriksaan CSRF. Namun, kita perlu berhati-hati karena menonaktifkan CSRF dapat membuka potensi risiko keamanan.
+
+## 4. Pada tutorial PBP minggu ini, pembersihan data input pengguna dilakukan di belakang (backend) juga. Mengapa hal tersebut tidak dilakukan di frontend saja?
+Meskipun pembersihan dan validasi data dapat dilakukan di frontend untuk meningkatkan pengalaman pengguna, validasi di backend tetap diperlukan untuk alasan keamanan. Pengguna dapat memanipulasi data yang dikirimkan ke server, misalnya dengan menggunakan developer tools atau alat lain untuk mengubah input setelah validasi di frontend dilakukan.
+
+Karena itu, validasi di backend berfungsi sebagai lapisan pertahanan yang lebih kuat untuk memastikan bahwa data yang dikirimkan benar-benar sesuai dengan aturan yang telah ditetapkan dan tidak membahayakan sistem. Hal ini mencegah potensi serangan seperti SQL Injection atau Cross-Site Scripting (XSS), serta memastikan integritas data yang diterima oleh server. Dengan melakukan validasi di backend, kita memastikan bahwa input pengguna tetap aman meskipun validasi di frontend telah dilewati atau dimanipulasi.
+
+## 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
