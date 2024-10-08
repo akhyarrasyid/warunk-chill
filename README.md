@@ -1,9 +1,9 @@
-Nama    : Akhyar Rasyid Asy syifa <br>
-NPM     : 2306241682 <br>
-Kelas   : PBP - D <br>
+Nama    : Akhyar Rasyid Asy syifa
+NPM     : 2306241682
+Kelas   : PBP - D
 
-WarunkChill🏪🥘🛒 <br>
-"The Perfect Place to Chill and Fill." <br>
+WarunkChill🏪🥘🛒
+"The Perfect Place to Chill and Fill."
 link APK : [WarunkChill](http://akhyar-rasyid-warunkchill.pbp.cs.ui.ac.id/)
 
 ### archive tugas🧑‍💻
