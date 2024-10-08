@@ -780,8 +780,8 @@ else:
 ```
 Walaupun langkah ini tidak disebutkan pada checklist, tetapi ini merupakan langkah pertama yang saya lakukan dalam mengerjakan tugas ini.
 
-### checklist 1 : Ubahlah kode cards data product agar dapat mendukung AJAX GET.
-#### note : 
+#### checklist 1 : Ubahlah kode cards data product agar dapat mendukung AJAX GET.
+**note** : 
 Untuk menambahkan kartu baru menggunakan AJAX GET dan POST, langkah awalnya adalah membuat fungsi JavaScript di dalam tag script pada `main.html`. Namun, berdasarkan referensi tutorial yang saya gunakan sebelumnya saat mengerjakan tugas, saya menerapkan AJAX POST terlebih dahulu untuk menambahkan kartu.
 1. Untuk dapat menjalankan AJAX, hal pertama yang perlu dilakukan adalah dengan menambahkan sebuah fungsi `add_product_ajax` pada `views.py` agar dapat digunakan. Aktifkan decorator `@require_POST` dan `@csrf_exempt` untuk menunjang jalannya POST lewat AJAX.
 ```python
@@ -847,7 +847,7 @@ def show_json(request):
 </script>
 ```
 
-### Checklist 2 : Lakukan pengambilan data _product_ menggunakan AJAX `GET`. Pastikan bahwa data yang diambil hanyalah data milik pengguna yang _logged-in_.
+#### Checklist 2 : Lakukan pengambilan data _product_ menggunakan AJAX `GET`. Pastikan bahwa data yang diambil hanyalah data milik pengguna yang _logged-in_.
 7. Agar data produk dapat direfresh secara asinkronus serta menampilkan data dalam bentuk cards, maka saya perlu menambahkan baris kode berikut pada script :
 ```python
     async function refreshProductEntries() {
@@ -903,7 +903,7 @@ def show_json(request):
     }
 ```
 
-### Checklist 3 : Buatlah sebuah tombol yang membuka sebuah modal dengan form untuk menambahkan _product_.
+#### Checklist 3 : Buatlah sebuah tombol yang membuka sebuah modal dengan form untuk menambahkan _product_.
 8. Saya perlu melakukan perubahan pada tombol add new product agar bisa membuka modal crud yang akan dibuat di step berikutnya. Hal ini demi memanfaatkan AJAX. Berikut kode setelah perubahan :
 ```python
 <div class="flex justify-end px-6 mt-8 gap-x-4">
@@ -918,7 +918,7 @@ def show_json(request):
 </div>
 ```
 
-### Checklist 4 : Buatlah fungsi _view_ baru untuk menambahkan _product_ baru ke dalam basis data.
+#### Checklist 4 : Buatlah fungsi _view_ baru untuk menambahkan _product_ baru ke dalam basis data.
 9. Agar fungsi penambahan produk dapat dijalankan, maka kita perlu membuat fungsi baru pada `views.py` (sudah disinggung di langkah nomor 1 sebenarnya) dengan menambahkan kode sebagai berikut :
 ```python
 @csrf_exempt
@@ -943,7 +943,7 @@ def add_product_entry_ajax(request):
     return HttpResponse(b"CREATED", status=201)
 ```
 
-### Checklist 5 : Buatlah fungsi _view_ baru untuk menambahkan _product_ baru ke dalam basis data.
+#### Checklist 5 : Buatlah fungsi _view_ baru untuk menambahkan _product_ baru ke dalam basis data.
 10. sudah disinggung di langkah nomor 2
 ```python
 urlpatterns = [
@@ -952,7 +952,7 @@ urlpatterns = [
 ]
 ```
 
-### Checklist 6 : Hubungkan form yang telah kamu buat di dalam modal kamu ke _path_  `/create-ajax/`.
+#### Checklist 6 : Hubungkan form yang telah kamu buat di dalam modal kamu ke _path_  `/create-ajax/`.
 11. Saya perlu membuat modal yang digunakan untuk form penamabahan produk baru. Hal itu dapat dilakukan dengan melakukan penambahan kode berikut di `main.html` :
 ```html
     <div id="crudModal" tabindex="-1" aria-hidden="true" class="hidden fixed inset-0 z-50 w-full flex items-center justify-center bg-gray-800 bg-opacity-50 overflow-x-hidden overflow-y-auto transition-opacity duration-300 ease-out">
