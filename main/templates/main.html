@@ -141,7 +141,7 @@
     }
     
     function addProductEntry() {
-      fetch("{% url 'main:add_product_entry_ajax' %}", {
+      fetch("{% url 'main:create_product_entry_ajax' %}", {
         method: "POST",
         body: new FormData(document.querySelector('#productEntryForm')),
       })
