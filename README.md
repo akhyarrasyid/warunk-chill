@@ -772,7 +772,7 @@ Karena itu, validasi di backend berfungsi sebagai lapisan pertahanan yang lebih 
 
 ## 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
 #### Pertama-tama, saya menambahkan pesan error pada view `login_user` seperti yang diajarkan pada tutorial.
-```
+```python
 if form.is_valid():
     user = form.get_user()
     login(request, user)
